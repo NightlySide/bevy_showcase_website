@@ -1,12 +1,14 @@
 import { Center, Container, Text, VStack } from "@chakra-ui/react";
 import styles from "./hero_video.module.css";
 
+const isProd = process.env.NODE_ENV === "production";
+
 const HeroVideo = () => {
 	return (
 		<div className={styles.container}>
 			<div className={styles.video_container}>
 				<video className={styles.video} loop autoPlay muted>
-					<source src="/hero_video.mp4" type="video/mp4" />
+					<source src={(isProd ? "/bevy_showcase_website/" : "/") + "hero_video.mp4"} type="video/mp4" />
 				</video>
 			</div>
 			<div className={styles.text}>
