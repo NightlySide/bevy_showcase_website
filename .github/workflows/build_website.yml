@@ -1,0 +1,39 @@
+name: Website deployment
+
+on:
+    push:
+        branches: [main]
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout 🛎️
+              uses: actions/checkout@v2.3.1
+            - name: Use Node.js 16.14
+              uses: actions/setup-node@v1
+              with:
+                  node-version: "16.14"
+            - uses: actions/cache@v2 # [H]
+              with:
+                  path: |
+                      ${{ github.workspace }}/node_modules
+                      ${{ github.workspace }}/.next/cache
+
+                  key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-${{ hashFiles('**/*.js') }}
+                  restore-keys: |
+                      ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-
+
+            - name: Installing packages
+              run: npm ci
+
+            - name: Building the website
+              run: npm run build && npm run export && touch ./out/.nojekyll
+
+            - name: Deploy 🚀
+              uses: JamesIves/github-pages-deploy-action@4.1.0
+              with:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                  BRANCH: gh-pages
+                  FOLDER: out
