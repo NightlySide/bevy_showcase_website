@@ -1,6 +1,5 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import fs from "fs";
 import matter from "gray-matter";
@@ -57,7 +56,7 @@ const Home: NextPage = ({ posts }: any) => {
 			<footer className={styles.footer}>
 				Made with <Icon className={styles.heart_icon} as={FaHeart} /> by{" "}
 				<div className={styles.bevy_icon}>
-					<Image
+					<img
 						alt="bevy bird"
 						src="https://cdn.discordapp.com/emojis/692653439649316874.webp"
 						width={24}

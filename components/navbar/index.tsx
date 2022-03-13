@@ -1,5 +1,4 @@
 import { HStack, Spacer, Text } from "@chakra-ui/react";
-import Image from "next/image";
 import styles from "./navbar.module.css";
 import logo from "../../public/bevy_assets_logo.svg";
 import Link from "next/link";
@@ -9,7 +8,7 @@ const Navbar = () => {
 		<HStack className={styles.container}>
 			<div className={styles.logo}>
 				<Link href="/" passHref>
-					<Image src={logo} alt="Bevy assets logo" />
+					<img src={logo} alt="Bevy assets logo" />
 				</Link>
 			</div>
 			<Spacer />
