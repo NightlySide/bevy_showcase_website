@@ -1,0 +1,23 @@
+.container {
+	position: relative;
+}
+
+.video {
+	width: 100%;
+	height: 600px;
+	object-fit: cover;
+	filter: blur(4px) brightness(0.8);
+	margin: -5px -10px -10px -5px;
+}
+
+.video_container {
+	overflow: hidden;
+}
+
+.text {
+	position: absolute;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	padding: 0 2em;
+}

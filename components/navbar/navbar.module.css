@@ -1,0 +1,21 @@
+.container {
+	height: 4em;
+	padding: 0 2em;
+	border-bottom: 1px solid var(--chakra-colors-gray-700);
+}
+
+.logo {
+	height: 3em;
+	display: flex;
+	width: 150px;
+}
+
+.link {
+	margin: 0.25em 0.5em 0 0.5em !important;
+}
+
+.link:hover,
+.logo:hover {
+	cursor: pointer;
+	text-decoration: underline;
+}
