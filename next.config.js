@@ -10,7 +10,7 @@ const nextConfig = withPlugins([[optimizedImages, {}]], {
 	images: {
 		domains: ["cdn.discordapp.com"]
 	},
-	basePath: isProd ? "https://nightlyside.github.io/bevy_showcase_website/" : ""
+	basePath: isProd ? "/bevy_showcase_website/" : "/"
 });
 
 export default nextConfig;
